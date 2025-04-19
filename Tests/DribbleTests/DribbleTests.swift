@@ -24,7 +24,7 @@ final class DribbleTests: XCTestCase {
                             guard let type = StunAttributeType(rawValue: attribute.type) else {
                                 continue
                             }
-                            let attribute = try! ResolvedStunAttribute(
+                            let attribute = try ResolvedStunAttribute(
                                 type: type,
                                 transactionId: message.header.transactionId,
                                 buffer: &value
