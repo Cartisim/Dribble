@@ -2,7 +2,7 @@ import NIOConcurrencyHelpers
 import _NIOConcurrency
 import NIO
 
-public final class TurnClient: StunClient {
+public final class TurnClient: StunClient, @unchecked Sendable {
     public func requestAllocation() async throws -> TurnAllocation {
         let message = try await sendMessage(.allocationRequest())
         

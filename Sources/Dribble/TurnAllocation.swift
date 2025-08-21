@@ -36,7 +36,7 @@ public struct TurnAllocation {
     }
 }
 
-final class TurnAllocationChannel: Channel, ChannelCore {
+final class TurnAllocationChannel: @unchecked Sendable, Channel, ChannelCore {
     internal let client: TurnClient
     internal let allocationAddress: SocketAddress
     public let allocator: ByteBufferAllocator

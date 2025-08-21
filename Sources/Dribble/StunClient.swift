@@ -2,7 +2,7 @@ import NIOConcurrencyHelpers
 import _NIOConcurrency
 import NIO
 
-public class StunClient {
+public class StunClient: @unchecked Sendable {
     let channel: Channel
     let sender: StunMessageSender
     
