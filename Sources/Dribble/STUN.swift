@@ -551,6 +551,12 @@ extension ByteBuffer {
         writeInteger(attribute.type)
         writeInteger(attribute.length)
         writeImmutableBuffer(attribute.value)
+
+        // STUN attributes are padded to a 32-bit boundary, but the length field excludes padding.
+        let paddingLength = (4 - (Int(attribute.length) % 4)) % 4
+        if paddingLength > 0 {
+            writeBytes([UInt8](repeating: 0x00, count: paddingLength))
+        }
     }
     
     mutating func writeSocketAddress(_ address: SocketAddress, xor: Bool) {

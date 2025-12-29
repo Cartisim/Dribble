@@ -22,4 +22,18 @@ public final class TurnClient: StunClient, @unchecked Sendable {
             throw StunClientError.queryFailed
         }
     }
+
+    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+    public static func withConnected<Result: Sendable>(
+        to address: SocketAddress,
+        configuration: Configuration = .init(),
+        _ body: @Sendable @escaping (TurnClient) async throws -> Result
+    ) async throws -> Result {
+        try await StunClient._withConnectedInternal(
+            clientType: TurnClient.self,
+            to: address,
+            configuration: configuration,
+            body
+        )
+    }
 }
