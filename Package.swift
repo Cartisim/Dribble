@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.92.0"),
-        .package(url: "https://github.com/needletails/swift-crypto.git", branch: "trait/force-build-swift-crypto-api")
+        .package(url: "https://github.com/needletails/swift-crypto.git", from: "1.0.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
