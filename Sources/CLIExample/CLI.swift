@@ -28,7 +28,7 @@ final class EnvelopToByteBufferConverter: @unchecked Sendable, ChannelInboundHan
 struct CLI {
     static func main() async throws {
         let address = try SocketAddress.makeAddressResolvingHost("10.211.55.4", port: 3478)
-        try await TurnClient.withConnected(to: address) { client in
+        try await TurnClient._withConnected(to: address) { client in
             let myAddress = try await client.requestBinding(addressFamily: .ipv4)
             let allocation = try await client.requestAllocation()
 

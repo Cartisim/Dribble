@@ -24,7 +24,7 @@ public final class TurnClient: StunClient, @unchecked Sendable {
     }
 
     @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-    public static func withConnected<Result: Sendable>(
+    public static func _withConnected<Result: Sendable>(
         to address: SocketAddress,
         configuration: Configuration = .init(),
         _ body: @Sendable @escaping (TurnClient) async throws -> Result
